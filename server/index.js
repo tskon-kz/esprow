@@ -24,5 +24,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port, () => {
-	console.log(`Crypsters-admin-panel web server at ${protocol}://${host}:${port}`);
+	console.log(`Esprow web server at ${protocol}://${host}:${port}`);
 });
