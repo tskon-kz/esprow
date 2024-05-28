@@ -1,6 +1,5 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
-import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import express from 'express';
 
@@ -16,13 +15,13 @@ const port = process.env.SERVER_PORT;
 
 app.use(express.static('build'));
 app.use(express.static('public'));
-app.use(bodyParser.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 
 app.get('*', (req, res) => {
 	res.sendFile(path.resolve(dirname, '../build/index.html'));
 });
 
 app.listen(port, () => {
-	console.log(`Esprow web server at ${protocol}://${host}:${port}`);
+	// eslint-disable-next-line no-console
+	console.info(`Esprow web server at ${protocol}://${host}:${port}`);
 });
