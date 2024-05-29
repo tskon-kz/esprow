@@ -1,1 +1,3 @@
-export type ListStructure = Record<string, unknown>
+export type JsonList = JsonListItem[]
+
+export type JsonListItem = Record<string, unknown>

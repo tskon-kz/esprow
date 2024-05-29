@@ -366,6 +366,11 @@
         ]
       }
     ],
+    "jsx-a11y/label-has-associated-control": ["error", {
+      "required": {
+        "some": ["nesting", "id"]
+      }
+    }],
     "react/jsx-indent": [
       "error",
       "tab"
@@ -408,6 +413,8 @@
     "import/no-duplicates": "off",
     "import/prefer-default-export": "off",
     "no-shadow": "off",
-    "arrow-body-style": "off"
+    "arrow-body-style": "off",
+    "prefer-destructuring": "off",
+    "react/destructuring-assignment": "off"
   }
 }

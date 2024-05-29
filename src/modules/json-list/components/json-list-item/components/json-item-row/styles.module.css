@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.label {
+  min-width: 100px;
+  text-align: right;
+  text-transform: capitalize;
+}

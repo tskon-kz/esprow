@@ -1,10 +1,13 @@
 import React from 'react';
+import JsonList from './modules/json-list/containers/json-list';
+import '@/common/styles.global.css';
 
 function App() {
 	return (
-		<div>
+		<main>
 			<h1>Esprow coding challenge</h1>
-		</div>
+			<JsonList />
+		</main>
 	);
 }
 

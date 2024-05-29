@@ -27,9 +27,24 @@ const getConfig = (styleLoader = 'style-loader') => ({
 			},
 
 			{
+				test: /\.s?css$/,
+				exclude: /\.global\.s?css$/i,
+				use: [
+					styleLoader,
+					{
+						loader: 'css-loader',
+						options: {
+							importLoaders: 1,
+							modules: true,
+						},
+					},
+				],
+			},
+
+			{
 				test: /\.global\.css$/i,
 				use: [
-					'style-loader',
+					styleLoader,
 					{
 						loader: 'css-loader',
 						options: {
