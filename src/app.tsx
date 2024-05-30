@@ -5,7 +5,6 @@ import '@/common/styles.global.css';
 function App() {
 	return (
 		<main>
-			<h1>Esprow coding challenge</h1>
 			<JsonList />
 		</main>
 	);

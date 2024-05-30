@@ -3,10 +3,48 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  min-height: 28px;
 }
 
 .label {
-  min-width: 100px;
+  min-width: 120px;
   text-align: right;
   text-transform: capitalize;
+  font-weight: 700;
 }
+
+.value {
+  display: -webkit-box;
+  width: 100%;
+  max-width: 170px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  color: gray;
+}
+
+input,
+textarea {
+  width: 100%;
+  max-width: 170px;
+  padding: 4px;
+}
+
+textarea {
+  width: 100%;
+  max-width: 170px;
+  resize: none;
+}
+
+.boolWrapper {
+  display: flex;
+  gap: 8px;
+  width: 170px;
+}
+
+.radioWrapper {
+  display: flex;
+  align-items: center;
+}
+
+

@@ -1,3 +1,9 @@
-export type JsonList = JsonListItem[]
+export type JsonValue = string|number|boolean|JsonObject|JsonArray
 
-export type JsonListItem = Record<string, unknown>
+export interface JsonObject {
+  [x: string]: JsonValue;
+}
+
+export interface JsonArray extends Array<JsonValue> { }
+
+export type JsonList = JsonObject[]

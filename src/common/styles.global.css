@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 main {
   max-width: 1200px;
   padding: 16px;
