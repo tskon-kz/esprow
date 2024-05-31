@@ -1,31 +1,32 @@
 import React from 'react';
-import { JsonList, JsonObject } from '@/modules/json-list/types';
+import { JsonList } from '@/modules/json-list/types';
+import config from '@/modules/json-list/config';
+import DeferRenderer from '@/common/components/defer-renderer';
 import JsonListItem from '../json-list-item';
 import * as styles from './styles.module.css';
-import config from '@/modules/json-list/config';
 
 interface Props {
   list: JsonList
-	onChange: (index: number, payload: JsonObject)=>void
+	onEdit: (index: number)=>void
 }
 
 function JsonListBody(props: Props) {
-	const rows = props.list.map((item, i) => {
-		const key = item[config.defaultFieldKey] ? String(item[config.defaultFieldKey]) : Math.random();
-
-		return (
-			<JsonListItem
-				key={key}
-				data={item}
-				className={styles.item}
-				onSave={payload => props.onChange(i, payload)}
-			/>
-		);
-	});
-
 	return (
 		<ul className={styles.wrapper}>
-			{rows}
+			<DeferRenderer chunkSize={4}>
+				{props.list.map((item, i) => {
+					const key = item[config.defaultFieldKey] ? String(item[config.defaultFieldKey]) : Math.random();
+
+					return (
+						<JsonListItem
+							key={key}
+							data={item}
+							className={styles.item}
+							onEdit={() => props.onEdit(i)}
+						/>
+					);
+				})}
+			</DeferRenderer>
 		</ul>
 	);
 }

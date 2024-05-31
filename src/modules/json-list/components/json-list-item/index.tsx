@@ -1,74 +1,43 @@
-import React, { FormEvent, useEffect, useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import { JsonObject } from '@/modules/json-list/types';
-import JsonItemRow from './components/json-item-row';
 import * as styles from './styles.module.css';
 
 interface Props {
 	className: string
   data: JsonObject|null
-	onSave: (payload: JsonObject)=>void
+	onEdit: ()=>void
 }
 
 function JsonListItem(props: Props) {
-	const [isEditMode, setIsEditMode] = useState(false);
-	const [form, setForm] = useState<JsonObject|null>(props.data);
+	if (!props.data) return null;
 
-	useEffect(() => {
-		setForm(props.data);
-	}, [props.data]);
-
-	if (!form) return null;
-
-	const dataKeys = Object.keys(form);
+	const dataKeys = Object.keys(props.data);
 
 	const rows = dataKeys.map(key => (
-		<JsonItemRow
-			key={key}
-			title={key}
-			value={form[key]}
-			isEditMode={isEditMode}
-			onChange={(fieldName, value) => { setForm(state => ({ ...state, [fieldName]: value })); }}
-		/>
+		<div key={key} className={styles.propertyWrapper}>
+			<span className={styles.propertyLabel}>
+				{`${key.replace(/([A-Z])/g, ' $1')}:`}
+			</span>
+			<span className={styles.propertyValue}>
+				{String(props.data![key])}
+			</span>
+		</div>
 	));
-
-	const submitHandler = (e: FormEvent) => {
-		e.preventDefault();
-		props.onSave(form);
-		setIsEditMode(false);
-	};
 
 	return (
 		<li className={classNames(styles.wrapper, props.className)}>
-			<form
-				onSubmit={submitHandler}
+			<button
+				className={styles.editButton}
+				type="button"
+				onClick={props.onEdit}
 			>
-				<div className={styles.actions}>
-					{!isEditMode && (
-						<button
-							className={styles.editButton}
-							type="button"
-							onClick={() => setIsEditMode(true)}
-						>
-							Edit
-						</button>
-					)}
+				Edit
+			</button>
 
-					{isEditMode && (
-						<button
-							className={styles.saveButton}
-							type="submit"
-						>
-							Save
-						</button>
-					)}
-
-				</div>
-
-				<div className={styles.rowsWrapper}>
-					{rows}
-				</div>
-			</form>
+			<div className={styles.rowsWrapper}>
+				{rows}
+			</div>
 		</li>
 	);
 }
