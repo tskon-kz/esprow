@@ -1,10 +1,34 @@
-.wrapper {
-  position: absolute;
+.modalBackdrop {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modalContent {
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 16px;
   border-radius: 8px;
   border: 1px solid gray;
-  background-color: white;
+  background-color: #f0f0f0;
+}
+
+.fieldsWrapper {
+  margin-bottom: 12px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.saveButton {
+  background-color: lightgreen;
 }

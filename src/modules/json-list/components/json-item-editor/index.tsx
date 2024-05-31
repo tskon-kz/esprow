@@ -24,9 +24,9 @@ function JsonItemEditor(props: Props) {
 	if (!form) return null;
 
 	return (
-		<div className={styles.wrapper}>
-			<form onSubmit={submitHandler}>
-				<div>
+		<div className={styles.modalBackdrop}>
+			<form className={styles.modalContent} onSubmit={submitHandler}>
+				<div className={styles.fieldsWrapper}>
 					{Object.keys(form).map(key => (
 						<JsonItemEditorRow
 							key={key}
@@ -38,8 +38,9 @@ function JsonItemEditor(props: Props) {
 					))}
 				</div>
 
-				<div>
+				<div className={styles.actions}>
 					<button
+						className={styles.saveButton}
 						type="submit"
 					>
 						Save

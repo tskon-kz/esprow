@@ -12,3 +12,25 @@ ul {
   list-style: none;
   padding: 0;
 }
+
+button {
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  font-family: monospace;
+  cursor: pointer;
+  transition: background-color .2s ease-in-out;
+}
+
+button:hover,
+button:focus-visible {
+  background-color: white;
+}
+
+input:not([type="radio"]),
+textarea {
+  padding: 4px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  width: 170px;
+}

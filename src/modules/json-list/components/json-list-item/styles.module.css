@@ -36,9 +36,8 @@
 .propertyValue {
   display: -webkit-box;
   width: 100%;
-  max-width: 240px;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 1;
   color: gray;
 }
