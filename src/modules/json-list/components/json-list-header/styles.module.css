@@ -1,0 +1,14 @@
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.actions .uploader {
+  width: auto;
+}
+
+.uploaderError::file-selector-button {
+  color: red;
+  border-color: red;
+}

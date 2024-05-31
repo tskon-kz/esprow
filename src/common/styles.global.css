@@ -13,7 +13,8 @@ ul {
   padding: 0;
 }
 
-button {
+button,
+input::file-selector-button {
   padding: 4px 8px;
   border-radius: 8px;
   border: 1px solid gray;
@@ -23,7 +24,9 @@ button {
 }
 
 button:hover,
-button:focus-visible {
+button:focus-visible,
+input::file-selector-button:hover,
+input:focus-visible::file-selector-button {
   background-color: white;
 }
 

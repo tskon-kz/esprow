@@ -38,13 +38,21 @@ function JsonItemEditorRow(props: Props) {
 		);
 
 		case 'text':
-		case 'email':
-		case 'number': return (
+		case 'email': return (
 			<input
 				type={fieldType}
 				name={props.fieldName}
 				value={props.value as number|string}
 				onChange={inputHandler}
+			/>
+		);
+
+		case 'number': return (
+			<input
+				type="number"
+				name={props.fieldName}
+				value={props.value as number|string}
+				onChange={e => props.onChange(e.target.name, Number(e.target.value))}
 			/>
 		);
 
@@ -127,5 +135,5 @@ function getFieldType(key: string, value: JsonValue):InputType|null {
 function dateForDateTimeInputValue(date: string) {
 	const initDate = new Date(date);
 	const offset = new Date().getTimezoneOffset() * 60 * 1000;
-	return new Date(initDate.getTime() + offset).toISOString().slice(0, 19);
+	return new Date(initDate.getTime() - offset).toISOString().slice(0, 19);
 }

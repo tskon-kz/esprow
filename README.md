@@ -11,3 +11,6 @@
 3. `yarn start` - start production server
 4. `yarn prod` - combination of `build` and `start` scripts
 5. `yarn lint` - check linter problems and fix if possible
+
+## Example json:
+`src/generated-example.json`
